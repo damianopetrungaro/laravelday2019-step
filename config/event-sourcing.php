@@ -81,26 +81,19 @@ return [
      * of your events but still handle older events correctly.
      */
     'event_class_map' => [
+        'order_was_placed' => OrderWasPlaced::class,
+        'order_was_paid' => OrderWasPaid::class,
+        'order_was_shipped' => OrderWasShipped::class,
+        'order_was_delivered' => OrderWasDelivered::class,
+        'order_was_refunded' => OrderWasRefunded::class,
     ],
-
-    // Mapping_2
-    //'event_class_map' => [
-    //    'order_was_placed' => OrderWasPlaced::class,
-    //    'order_was_paid' => OrderWasPaid::class,
-    //    'order_was_shipped' => OrderWasShipped::class,
-    //    'order_was_delivered' => OrderWasDelivered::class,
-    //    'order_was_refunded' => OrderWasRefunded::class,
-    //],
 
     /*
      * This class is responsible for serializing events. By default an event will be serialized
      * and stored as json. You can customize the class name. A valid serializer
      * should implement Spatie\EventSourcing\EventSerializers\Serializer.
      */
-    'event_serializer' => JsonEventSerializer::class,
-
-    // Mapping 2
-    //'event_serializer' => EventSerializer::class,
+    'event_serializer' => EventSerializer::class,
 
     /*
     * This array is responsible for mapping the serializer with its own event.

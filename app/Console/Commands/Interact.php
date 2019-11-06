@@ -19,16 +19,6 @@ final class Interact extends Command
         $aggregate->persist();
     }
 
-    public function handle2(): void
-    {
-        // Let's make the attributes public and no constructor, so we can save the object
-        $aggregate = $this->anonymousClass();
-        $event = new OrderWasDelivered();
-        $event->deliveredAt = new \DateTimeImmutable();
-        $aggregate->recordThat($event);
-        $aggregate->persist();
-    }
-
     private function anonymousClass(): AggregateRoot
     {
         return new class extends AggregateRoot
