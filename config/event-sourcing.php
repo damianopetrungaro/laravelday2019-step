@@ -11,7 +11,6 @@ use App\Serializers\OrderWasPaidSerializer;
 use App\Serializers\OrderWasPlacedSerializer;
 use App\Serializers\OrderWasRefundedSerializer;
 use App\Serializers\OrderWasShippedSerializer;
-use Spatie\EventSourcing\EventSerializers\JsonEventSerializer;
 
 return [
 

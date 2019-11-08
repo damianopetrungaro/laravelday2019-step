@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
+use App\Aggregates\Order;
 use App\Events\OrderWasDelivered;
-use Spatie\EventSourcing\AggregateRoot;
+use Illuminate\Console\Command;
 
 final class Interact extends Command
 {
@@ -14,15 +14,8 @@ final class Interact extends Command
 
     public function handle(): void
     {
-        $aggregate = $this->anonymousClass();
+        $aggregate = Order::retrieve('uuid here');
         $aggregate->recordThat(new OrderWasDelivered(new \DateTimeImmutable()));
         $aggregate->persist();
-    }
-
-    private function anonymousClass(): AggregateRoot
-    {
-        return new class extends AggregateRoot
-        {
-        };
     }
 }

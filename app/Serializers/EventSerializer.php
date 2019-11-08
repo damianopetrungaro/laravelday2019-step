@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Serializers;
 
-use function config;
 use App\Serializers\Exception\SerializerIsNotAvailable;
 use Spatie\EventSourcing\EventSerializers\EventSerializer as SpatieSerializer;
 use Spatie\EventSourcing\ShouldBeStored;
+use function config;
 
 final class EventSerializer implements SpatieSerializer
 {

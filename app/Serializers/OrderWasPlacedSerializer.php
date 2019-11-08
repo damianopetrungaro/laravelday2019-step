@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace App\Serializers;
 
-use DateTimeImmutable;
-use Money\Currency;
-use Money\Money;
 use App\Events\OrderWasPlaced;
 use App\Serializers\Exception\EventIsInvalid;
 use App\Serializers\Exception\UnableToSerialize;
@@ -16,6 +13,9 @@ use App\ValueObjects\BookID;
 use App\ValueObjects\CustomerDetails;
 use App\ValueObjects\CustomerID;
 use App\ValueObjects\ID;
+use DateTimeImmutable;
+use Money\Currency;
+use Money\Money;
 use Spatie\EventSourcing\EventSerializers\EventSerializer;
 use Spatie\EventSourcing\ShouldBeStored;
 use Throwable;
@@ -39,8 +39,8 @@ final class OrderWasPlacedSerializer implements EventSerializer
         $billingAddress = $customerDetails->billingAddress();
 
         return \json_encode([
-            'ID' => (string) $event->ID(),
-            'customerID' => (string) $event->customerID(),
+            'ID' => (string)$event->ID(),
+            'customerID' => (string)$event->customerID(),
             'customerDetails' => [
                 'firstName' => $customerDetails->firstName(),
                 'lastName' => $customerDetails->lastName(),
@@ -61,7 +61,7 @@ final class OrderWasPlacedSerializer implements EventSerializer
                     'ringName' => $deliveryAddress->ringName(),
                 ],
             ],
-            'bookID' => (string) $event->bookID(),
+            'bookID' => (string)$event->bookID(),
             'bookDetails' => [
                 'title' => $bookDetails->title(),
                 'author' => $bookDetails->author(),

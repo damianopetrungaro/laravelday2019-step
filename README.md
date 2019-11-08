@@ -44,3 +44,30 @@ Add serializers
     - use handle1
 
 Cool so far!
+
+
+Step 2
+
+Add Value Object
+
+    - app/ValueObjects/Exception/...
+    - app/ValueObjects/Address.php
+    - app/ValueObjects/BookDetails.php
+    - app/ValueObjects/BookID.php
+    - app/ValueObjects/CustomerDetails.php
+    - app/ValueObjects/CustomerID.php
+    - app/ValueObjects/ID.php
+    - app/ValueObjects/UserID.php
+    
+Refactor the domain event using ValueObject 
+
+    - ...
+    
+Add the Aggregate
+
+    - php artisan make:aggregate Order
+    - add getter/setter in old fashion way
+    - refactor using the domain events
+    - add domain exceptions
+    
+

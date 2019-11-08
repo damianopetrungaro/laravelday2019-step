@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Events;
 
-use DateTimeImmutable;
 use App\ValueObjects\BookDetails;
 use App\ValueObjects\BookID;
 use App\ValueObjects\CustomerDetails;
 use App\ValueObjects\CustomerID;
 use App\ValueObjects\ID;
+use DateTimeImmutable;
 use Spatie\EventSourcing\ShouldBeStored;
 
 final class OrderWasPlaced implements ShouldBeStored
@@ -51,7 +51,8 @@ final class OrderWasPlaced implements ShouldBeStored
         BookID $bookID,
         BookDetails $bookDetails,
         DateTimeImmutable $placedAt
-    ) {
+    )
+    {
         $this->ID = $ID;
         $this->customerID = $customerID;
         $this->customerDetails = $customerDetails;

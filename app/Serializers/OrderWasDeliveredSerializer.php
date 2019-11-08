@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Serializers;
 
-use DateTimeImmutable;
 use App\Events\OrderWasDelivered;
 use App\Serializers\Exception\EventIsInvalid;
 use App\Serializers\Exception\UnableToSerialize;
+use DateTimeImmutable;
 use Spatie\EventSourcing\EventSerializers\EventSerializer;
 use Spatie\EventSourcing\ShouldBeStored;
 use Throwable;

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Serializers;
 
-use DateTimeImmutable;
-use Money\Currency;
-use Money\Money;
 use App\Events\OrderWasRefunded;
 use App\Serializers\Exception\EventIsInvalid;
 use App\Serializers\Exception\UnableToSerialize;
 use App\ValueObjects\UserID;
+use DateTimeImmutable;
+use Money\Currency;
+use Money\Money;
 use Spatie\EventSourcing\EventSerializers\EventSerializer;
 use Spatie\EventSourcing\ShouldBeStored;
 use Throwable;
@@ -34,7 +34,7 @@ final class OrderWasRefundedSerializer implements EventSerializer
                 'currency' => $event->amount()->getCurrency()->getCode(),
             ],
             'refundedAt' => $event->refundedAt()->format(self::TIME_FORMAT),
-            'refundedBy' => (string) $event->refundedBy(),
+            'refundedBy' => (string)$event->refundedBy(),
         ]);
     }
 
