@@ -1,6 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+declare(strict_types=1);
+
+use App\Http\Middleware\Validation\BookDetailsValidation;
+use App\Http\Middleware\Validation\BookIDValidation;
+use App\Http\Middleware\Validation\CustomerDetailsValidation;
+use App\Http\Middleware\Validation\CustomerIDValidation;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +17,10 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::middleware([
+    CustomerIDValidation::class,
+    CustomerDetailsValidation::class,
+    BookIDValidation::class,
+    BookDetailsValidation::class,
+])->post('/orders', 'PlaceOrderController');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});

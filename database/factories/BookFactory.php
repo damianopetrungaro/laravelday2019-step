@@ -1,10 +1,12 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+declare(strict_types=1);
 
-use App\Model\User;
+/* @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Model\Book;
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +19,11 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Book::class, static function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'id' => $faker->uuid,
+        'title' => $faker->sentence,
+        'author' => $faker->name,
+        'price' => $faker->numberBetween(1000, 10000),
     ];
 });

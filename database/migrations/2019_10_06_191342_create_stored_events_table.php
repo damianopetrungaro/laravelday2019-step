@@ -8,7 +8,7 @@ final class CreateStoredEventsTable extends Migration
 {
     public function up()
     {
-        Schema::create('stored_events', function (Blueprint $table) {
+        Schema::create('stored_events', static function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('aggregate_uuid')->nullable();
             $table->string('event_class');
