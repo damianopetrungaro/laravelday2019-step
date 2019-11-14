@@ -5,6 +5,9 @@ use App\Events\OrderWasPaid;
 use App\Events\OrderWasPlaced;
 use App\Events\OrderWasRefunded;
 use App\Events\OrderWasShipped;
+use App\Projectors\MostRefundedBooks;
+use App\Projectors\MostSoldBooks;
+use App\Projectors\Orders;
 use App\Serializers\EventSerializer;
 use App\Serializers\OrderWasDeliveredSerializer;
 use App\Serializers\OrderWasPaidSerializer;
@@ -28,7 +31,9 @@ return [
      * Projectors can be registered in this array or a service provider.
      */
     'projectors' => [
-        // App\Projectors\YourProjector::class
+        Orders::class,
+        MostRefundedBooks::class,
+        MostSoldBooks::class,
     ],
 
     /*

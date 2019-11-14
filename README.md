@@ -149,3 +149,18 @@ Add CLICommands
     - app/Console/Commands/...
     - Run some commands!
 
+Step 4
+
+Add ReadModels and Projectors
+
+    - Add database/migration/...
+    - run php artisan migrate
+    - Add mapping to the event-sourcing.php file at the key `projectors` (see diff)
+    - run php artisan event-sourcing:replay
+
+
+Add HTTPRequest to read orders
+
+    - Add route in the routes/api.php (see diff)
+    - get order projected (http://localhost:8000/api/orders/223058a2-23be-4758-bcbe-e219f188f8c1)
+    

@@ -6,6 +6,7 @@ use App\Http\Middleware\Validation\BookDetailsValidation;
 use App\Http\Middleware\Validation\BookIDValidation;
 use App\Http\Middleware\Validation\CustomerDetailsValidation;
 use App\Http\Middleware\Validation\CustomerIDValidation;
+use App\Model\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::middleware([
     BookDetailsValidation::class,
 ])->post('/orders', 'PlaceOrderController');
 
+Route::get('/orders/{order}', static function (Order $order) {
+    return $order;
+});
